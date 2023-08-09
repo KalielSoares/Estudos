@@ -15,9 +15,10 @@ module.exports = class Database{
         this.#storage.authors.push(author)
     }
 
-    findBookByName(bookName){
-        return this.book.find(b => b.name === bookName)
-    }
+    
+  findBookByName(bookName) {
+    return this.#storage.books.find(b => b.name === bookName)
+  }
 
     saveBook(book){
         const bookExists = this.findBookByName(book.name)
@@ -31,16 +32,16 @@ module.exports = class Database{
         book?.addToStock(quantity)
     }
 
-    removeBooksFromStock(bookName,quantity){
+    removeBooksFromStock(bookName, quantity) {
         const book = this.findBookByName(bookName)
-        book?.removeBooksFromStock(quantity)
+        book?.removeFromStock(quantity)
     }
 
     savePoster(poster) {
         const posterExists = this.findPosterByName(poster.name)
-        if (!posterExists) [
-          this.#storage.posters.push(poster)
-        ]
+        if (!posterExists) {
+            his.#storage.posters.push(poster)
+        }
       }
     
       addPostersToStock(posterName, quantity) {

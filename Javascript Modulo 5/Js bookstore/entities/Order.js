@@ -1,4 +1,4 @@
-
+const Product = require("./Product")
 module.exports = class Order{
     #total
     #items
