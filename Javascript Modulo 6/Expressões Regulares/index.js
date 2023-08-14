@@ -1,6 +1,8 @@
 function PhoneNumber(phoneNumberString) {
     const fixedString = phoneNumberString.replace(/[\sA-Za-z]/g, "")
     this.countryCode = fixedString.match(/(?<=\+)\d{1,3}/)[0]
+    this.ddd = fixedString.match(/(?<=\()\d+(?=\))/)
+    this.number = fixedString.match(/(?<=\)).+/)[0]
 }
 
 console.log(new PhoneNumber('+55 (22) 9 9914-0666'))
